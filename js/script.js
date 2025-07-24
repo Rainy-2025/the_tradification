@@ -96,7 +96,7 @@ var THEMEMASCOT = {};
     `;
 
     // Inject custom content into mobile menu only
-    $('.mobile-menu .navigation2').html(mobileMenuItems);
+    $('.mobile-menu .navigation1').html(mobileMenuItems);
 
 		// Close mobile menu on button click
 		$('.mobile-menu .close-btn').on('click', function () {

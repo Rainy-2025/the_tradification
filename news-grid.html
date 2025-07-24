@@ -226,7 +226,8 @@
 						<!--Logo-->
 						<div class="logo" style="width: 120px; height: 60px; border: 2px solid #fff;">
 							<a href="index.html" title="">
-								<img src="images/logo.png" alt="" title="" style="width: 100%; height:100%; object-fit: cover;">
+								<img src="images/logo.png" alt="" title=""
+									style="width: 100%; height:100%; object-fit: cover;">
 							</a>
 						</div>
 
@@ -341,23 +342,23 @@
 									const courseDiv = document.createElement('div');
 									courseDiv.className = `course-block-two mix category-${course.category_id} col-lg-4 col-md-6 col-sm-12`;
 									courseDiv.innerHTML = `
-                <div class="inner-box">
-                  <div class="image-box">
-                    <figure class="image"><a href="#"><img src="project-settings/backend/uploads/${course.thumbnail}" alt=""></a></figure>
-                    <span class="price">$${course.price || 'Free'}</span>
-                    <div class="value">${course.level || 'Beginner'}</div>
-                  </div>
-                  <div class="content-box">
-                    <ul class="course-info">
-                      <li><i class="fa fa-book"></i> ${course.lectures || 0} Lessons</li>
-                      <li><i class="fa fa-clock"></i> ${course.duration || 'N/A'}</li>
-                    </ul>
-                    <h5 class="title"><a href="course-details.html?id=${course.id}">${course.name}</a></h5>
-              
-                    </div>
-                  </div>
-                </div>
-              `;
+												<div class="inner-box">
+												<div class="image-box">
+													<figure class="image"><a href="#"><img src="project-settings/backend/uploads/${course.thumbnail}" alt=""></a></figure>
+													<span class="price">$${course.price || 'Free'}</span>
+													<div class="value">${course.level || 'Beginner'}</div>
+												</div>
+												<div class="content-box">
+													<ul class="course-info">
+													<li><i class="fa fa-book"></i> ${course.lectures || 0} Lessons</li>
+													<li><i class="fa fa-clock"></i> ${course.duration || 'N/A'}</li>
+													</ul>
+													<h5 class="title"><a href="course-details.html?id=${course.id}">${course.name}</a></h5>
+											
+													</div>
+												</div>
+												</div>
+											`;
 									courseContainer.appendChild(courseDiv);
 								});
 
@@ -381,21 +382,22 @@
 	<!--End News Section -->
 
 	<!-- Main Footer -->
-		<footer class="main-footer">
-			<div class="bg-image zoom-two" style="background-image: url(images/background/4.jpg)"></div>
+	<footer class="main-footer">
+		<div class="bg-image zoom-two" style="background-image: url(images/background/4.jpg)"></div>
 
-			<!--Widgets Section-->
-			<div class="widgets-section">
-				<div class="auto-container">
-					<div class="row">
-						<!--Footer Column-->
-						<div class="footer-column col-xl-3 col-lg-12 col-md-6 col-sm-12">
-							<div class="footer-widget about-widget">
-								<div class="logo d-flex align-items-center justify-content-center  mb-3 mx-auto mr-3"
-									style="width: 90px; height: 90px; "><a href="index.html"><img
-											src="images/logo-2.png" alt=""></a></div>
-								<div class="text mt-4">The Tradification — Learn. Trade. Grow. Empowering every trader’s journey with insight and confidence.</div>
-								<!-- <ul class="social-icon-two">
+		<!--Widgets Section-->
+		<div class="widgets-section">
+			<div class="auto-container">
+				<div class="row">
+					<!--Footer Column-->
+					<div class="footer-column col-xl-3 col-lg-12 col-md-6 col-sm-12">
+						<div class="footer-widget about-widget">
+							<div class="logo d-flex align-items-center justify-content-center  mb-3 mx-auto mr-3"
+								style="width: 90px; height: 90px; "><a href="index.html"><img src="images/logo-2.png"
+										alt=""></a></div>
+							<div class="text mt-4">The Tradification — Learn. Trade. Grow. Empowering every trader’s
+								journey with insight and confidence.</div>
+							<!-- <ul class="social-icon-two">
 									<li><a href="https://x.com/zaidshe72458514"><span class="fab fa-twitter"></span></a>
 									</li>
 									<li><a href="https://www.youtube.com/@The_Tradification"><span
@@ -405,65 +407,64 @@
 									<li><a href="https://www.instagram.com/the_tradification/"><span
 												class="fab fa-instagram"></span></a></li>
 								</ul> -->
-							</div>
 						</div>
+					</div>
 
-						<!--Footer Column-->
-						<div class="footer-column col-xl-2 col-lg-4 col-md-6 col-sm-12">
-							<div class="footer-widget">
-								<h4 class="widget-title">Explore</h4>
-								<ul class="user-links">
-									<li><a href="privacy.html">Privacy Policy</a></li>
-									<li><a href="login.html">Login</a></li>
-									<li><a href="Terms&Condition.html">Terms & Conditions</a></li>
-									<li><a href="RefundPolicy.html">Refund Policy</a></li>
-									<li><a href="page-contact.html">Contacts</a></li>
-								</ul>
-							</div>
+					<!--Footer Column-->
+					<div class="footer-column col-xl-2 col-lg-4 col-md-6 col-sm-12">
+						<div class="footer-widget">
+							<h4 class="widget-title">Explore</h4>
+							<ul class="user-links">
+								<li><a href="privacy.html">Privacy Policy</a></li>
+								<li><a href="login.html">Login</a></li>
+								<li><a href="Terms&Condition.html">Terms & Conditions</a></li>
+								<li><a href="RefundPolicy.html">Refund Policy</a></li>
+								<li><a href="page-contact.html">Contacts</a></li>
+							</ul>
 						</div>
+					</div>
 
-						<!--Footer Column-->
-						<div class="footer-column col-xl-2 col-lg-4 col-md-6 col-sm-12">
-							<div class="footer-widget">
-								<h4 class="widget-title">Links</h4>
-								<ul class="user-links">
-									<li><a href="page-about.html">About</a></li>
-									<li><a href="page-courses.html">Courses</a></li>
-									<li><a href="page-webinars.html">Webinars</a></li>
-									<!-- <li><a href="#">Events</a></li>
+					<!--Footer Column-->
+					<div class="footer-column col-xl-2 col-lg-4 col-md-6 col-sm-12">
+						<div class="footer-widget">
+							<h4 class="widget-title">Links</h4>
+							<ul class="user-links">
+								<li><a href="page-about.html">About</a></li>
+								<li><a href="page-courses.html">Courses</a></li>
+								<li><a href="page-webinars.html">Webinars</a></li>
+								<!-- <li><a href="#">Events</a></li>
 									<li><a href="#">Instructor Profile</a></li> -->
-								</ul>
-							</div>
+							</ul>
 						</div>
+					</div>
 
-						<!--Footer Column-->
-						<div class="footer-column col-xl-5 col-lg-4 col-md-6 col-sm-12">
-							<div class="footer-widget contact-widget">
-								<h4 class="widget-title">Contact</h4>
-								<div class="widget-content">
-									<ul class="contact-info">
-										<li><i class="fa fa-phone-square"></i> <a href="tel:+926668880000">+91
-												6268491275</a></li>
-										<li><i class="fa fa-envelope"></i> <a
-												href="https://html.kodesolution.com/cdn-cgi/l/email-protection#147a7171707c71786454647b607d67717a3a777b79"><span
-													class="__cf_email__"
-													data-cfemail="fc929999989499908cbc9f93918c9d9285d29f9391">support@thetradification.com</span></a>
-										</li>
-										<li><i class="fa fa-map-marker-alt"></i> 403,SS ENCLAVE UMARIYA MHOW</li>
-										</li>
-									</ul>
-									<ul class="social-icon-two">
-										<li><a href="https://x.com/zaidshe72458514"><span
-													class="fab fa-twitter"></span></a>
-										</li>
-										<li><a href="https://www.youtube.com/@The_Tradification"><span
-													class="fab fa-youtube"></span></a></li>
-										<li><a href="https://www.linkedin.com/in/mohd-zaid-sheikh-8ba4231b2/"><span
-													class="fab fa-linkedin-in"></span></a></li>
-										<li><a href="https://www.instagram.com/the_tradification/"><span
-													class="fab fa-instagram"></span></a></li>
-									</ul>
-									<!-- <div class="subscribe-form">
+					<!--Footer Column-->
+					<div class="footer-column col-xl-5 col-lg-4 col-md-6 col-sm-12">
+						<div class="footer-widget contact-widget">
+							<h4 class="widget-title">Contact</h4>
+							<div class="widget-content">
+								<ul class="contact-info">
+									<li><i class="fa fa-phone-square"></i> <a href="tel:+926668880000">+91
+											6268491275</a></li>
+									<li><i class="fa fa-envelope"></i> <a
+											href="https://html.kodesolution.com/cdn-cgi/l/email-protection#147a7171707c71786454647b607d67717a3a777b79"><span
+												class="__cf_email__"
+												data-cfemail="fc929999989499908cbc9f93918c9d9285d29f9391">support@thetradification.com</span></a>
+									</li>
+									<li><i class="fa fa-map-marker-alt"></i> 403,SS ENCLAVE UMARIYA MHOW</li>
+									</li>
+								</ul>
+								<ul class="social-icon-two">
+									<li><a href="https://x.com/zaidshe72458514"><span class="fab fa-twitter"></span></a>
+									</li>
+									<li><a href="https://www.youtube.com/@The_Tradification"><span
+												class="fab fa-youtube"></span></a></li>
+									<li><a href="https://www.linkedin.com/in/mohd-zaid-sheikh-8ba4231b2/"><span
+												class="fab fa-linkedin-in"></span></a></li>
+									<li><a href="https://www.instagram.com/the_tradification/"><span
+												class="fab fa-instagram"></span></a></li>
+								</ul>
+								<!-- <div class="subscribe-form">
 
 										<form method="post" action="#">
 											<div class="form-group">
@@ -474,24 +475,25 @@
 											</div>
 										</form>
 									</div> -->
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<!--Footer Bottom-->
-			<div class="footer-bottom">
-				<div class="auto-container">
-					<div class="inner-container">
-						<div class="copyright-text">&copy; Copyright reserved by <a href="https://skyroutesolution.com/">skyroutesolution.com</a>
-						</div>
+		<!--Footer Bottom-->
+		<div class="footer-bottom">
+			<div class="auto-container">
+				<div class="inner-container">
+					<div class="copyright-text">&copy; Copyright reserved by <a
+							href="https://skyroutesolution.com/">skyroutesolution.com</a>
 					</div>
 				</div>
 			</div>
-		</footer>
-		<!--End Main Footer -->
+		</div>
+	</footer>
+	<!--End Main Footer -->
 
 	</div><!-- End Page Wrapper -->
 

@@ -25,31 +25,32 @@
 	<!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
 	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 	<style>
-	.webinar-countdown {
-		display: inline-block;
-		min-width: 80px;
-		padding: 10px 10px;
-		background: #fff;
-		color: #ff7f50;
-		border-radius: 10px;
-		font-weight: 1000;
-		text-align: center;
-		margin: 0 15px 10px 0;
-		font-size: 3.5rem;
-		font-family: 'Arial Black', Gadget, sans-serif;
-		box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
-	}
-	.countdown-label {
-		display: block;
-		background-color: #ff7f50;
-		font-size: 1.5rem;
-		font-weight: 800;
-		padding: 5px 15px;
-		border-radius: 1px 1px 5px 5px;
-		text-transform: uppercase;
-		font-family: Arial, sans-serif;
-		margin: 0 15px 10px 0;
-	}
+		.webinar-countdown {
+			display: inline-block;
+			min-width: 80px;
+			padding: 10px 10px;
+			background: #fff;
+			color: #ff7f50;
+			border-radius: 10px;
+			font-weight: 1000;
+			text-align: center;
+			margin: 0 15px 10px 0;
+			font-size: 3.5rem;
+			font-family: 'Arial Black', Gadget, sans-serif;
+			box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+		}
+
+		.countdown-label {
+			display: block;
+			background-color: #ff7f50;
+			font-size: 1.5rem;
+			font-weight: 800;
+			padding: 5px 15px;
+			border-radius: 1px 1px 5px 5px;
+			text-transform: uppercase;
+			font-family: Arial, sans-serif;
+			margin: 0 15px 10px 0;
+		}
 	</style>
 	<!-- SweetAlert2 CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
@@ -218,7 +219,6 @@
 						</li>
 					</ul>
 
-
 					<ul class="social-links">
 						<li><a href="https://x.com/zaidshe72458514"><span class="fab fa-twitter"></span></a>
 						</li>
@@ -255,7 +255,8 @@
 						<!--Logo-->
 						<div class="logo" style="width: 120px; height: 60px; border: 2px solid #fff;">
 							<a href="index.html" title="">
-								<img src="images/logo.png" alt="" title="" style="width: 100%; height:100%; object-fit: cover;">
+								<img src="images/logo.png" alt="" title=""
+									style="width: 100%; height:100%; object-fit: cover;">
 							</a>
 						</div>
 
@@ -302,9 +303,11 @@
 					<!--Start courses Details Content-->
 					<div class="col-xl-8 col-lg-8">
 						<div class="courses-details__content">
-							<img id="webinar-thumbnail" src="images/resource/course-details.jpg" alt="Webinar Thumbnail" style="width:100%; max-height:400px; object-fit:cover;" />
+							<img id="webinar-thumbnail" src="images/resource/course-details.jpg" alt="Webinar Thumbnail"
+								style="width:100%; max-height:400px; object-fit:cover;" />
 							<div class="inner-column mt-4">
-								<div id="webinar-countdown" class="time-countdown time-counter-two" data-countdown=""></div>
+								<div id="webinar-countdown" class="time-countdown time-counter-two" data-countdown="">
+								</div>
 							</div>
 							<h2 class="mt-4" id="webinar-title">Webinar Title</h2>
 							<p id="webinar-description">Loading webinar description...</p>
@@ -400,14 +403,14 @@
 									<span class="course-details-info-icon"><i class="far fa-clock"></i></span>
 									Durations: <span id="webinar-duration">10 hours</span>
 								</li>
-							<li class="course-details-info-link">
-    <span class="course-details-info-icon"><i class="far fa-folder-open"></i></span>
-    Lectures: <span id="webinar-lectures" class="count-badge">15</span>
-</li>
-<li class="course-details-info-link">
-    <span class="course-details-info-icon"><i class="far fa-user-circle"></i></span>
-    Students Enrolled: <span id="webinar-students" class="count-badge">Max 50</span>
-</li>
+								<li class="course-details-info-link">
+									<span class="course-details-info-icon"><i class="far fa-folder-open"></i></span>
+									Lectures: <span id="webinar-lectures" class="count-badge">15</span>
+								</li>
+								<li class="course-details-info-link">
+									<span class="course-details-info-icon"><i class="far fa-user-circle"></i></span>
+									Students Enrolled: <span id="webinar-students" class="count-badge">Max 50</span>
+								</li>
 								<!-- <li class="course-details-info-link">
 									<span class="course-details-info-icon"><i class="far fa-flag"></i></span>
 									Skill Level: <span id="webinar-skill-level">Advanced</span>
@@ -425,7 +428,8 @@
 							<div class="course-details-price">
 								<p class="course-details-price-text">Webinar price</p>
 								<p class="course-details-price-amount" id="webinar-price">$0.00</p>
-								<a href="checkout.html" class="theme-btn btn-style-two course-details-price-btn" id="buy-webinar-btn">Buy This
+								<a href="checkout.html" class="theme-btn btn-style-two course-details-price-btn"
+									id="buy-webinar-btn">Buy This
 									Webinar</a>
 							</div>
 
@@ -498,27 +502,33 @@
 								<div class="row">
 									<div class="col-sm-6">
 										<div class="mb-3">
-											<input name="form_name" id="form_name" class="form-control" type="text" placeholder="Enter Name" required>
+											<input name="form_name" id="form_name" class="form-control" type="text"
+												placeholder="Enter Name" required>
 										</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="mb-3">
-											<input name="form_email" id="form_email" class="form-control required email" type="email" placeholder="Enter Email" required>
+											<input name="form_email" id="form_email" class="form-control required email"
+												type="email" placeholder="Enter Email" required>
 										</div>
 									</div>
 									<div class="col-sm-12">
 										<div class="mb-3">
 											<label for="form_profile_picture" class="form-label">Profile Picture</label>
-											<input name="form_profile_picture" id="form_profile_picture" class="form-control" type="file" accept="image/*">
+											<input name="form_profile_picture" id="form_profile_picture"
+												class="form-control" type="file" accept="image/*">
 										</div>
 									</div>
 								</div>
 								<div class="mb-3">
-									<textarea name="form_message" id="form_message" class="form-control required" rows="5" placeholder="Enter Message" required></textarea>
+									<textarea name="form_message" id="form_message" class="form-control required"
+										rows="5" placeholder="Enter Message" required></textarea>
 								</div>
 								<div class="mb-3">
-									<input name="form_botcheck" id="form_botcheck" class="form-control" type="hidden" value="" />
-									<button type="button" id="submit_comment_btn" class="theme-btn btn-style-one"><span class="btn-title">Submit Comment</span></button>
+									<input name="form_botcheck" id="form_botcheck" class="form-control" type="hidden"
+										value="" />
+									<button type="button" id="submit_comment_btn" class="theme-btn btn-style-one"><span
+											class="btn-title">Submit Comment</span></button>
 								</div>
 							</form>
 						</div>
@@ -528,7 +538,7 @@
 			</div>
 		</section>
 		<!--End courses Details-->
-<!-- Main Footer -->
+		<!-- Main Footer -->
 		<footer class="main-footer">
 			<div class="bg-image zoom-two" style="background-image: url(images/background/4.jpg)"></div>
 
@@ -542,7 +552,8 @@
 								<div class="logo d-flex align-items-center justify-content-center  mb-3 mx-auto mr-3"
 									style="width: 90px; height: 90px; "><a href="index.html"><img
 											src="images/logo-2.png" alt=""></a></div>
-								<div class="text mt-4">The Tradification — Learn. Trade. Grow. Empowering every trader’s journey with insight and confidence.</div>
+								<div class="text mt-4">The Tradification — Learn. Trade. Grow. Empowering every trader’s
+									journey with insight and confidence.</div>
 								<!-- <ul class="social-icon-two">
 									<li><a href="https://x.com/zaidshe72458514"><span class="fab fa-twitter"></span></a>
 									</li>
@@ -633,7 +644,8 @@
 			<div class="footer-bottom">
 				<div class="auto-container">
 					<div class="inner-container">
-						<div class="copyright-text">&copy; Copyright reserved by <a href="https://skyroutesolution.com/">skyroutesolution.com</a>
+						<div class="copyright-text">&copy; Copyright reserved by <a
+								href="https://skyroutesolution.com/">skyroutesolution.com</a>
 						</div>
 					</div>
 				</div>
@@ -680,35 +692,35 @@
 			fetch(`backend/fetch_webinar_details.php?id=${webinarId}`)
 				.then(response => response.json())
 				.then(data => {
-    if (data.error) {
-        alert(data.error);
-        return;
-    }
+					if (data.error) {
+						alert(data.error);
+						return;
+					}
 
-    // Update page content with webinar data
-    document.getElementById("webinar-title").textContent = data.name || "No title";
-    document.getElementById("webinar-description").textContent = data.short_description || "";
-    // Trim whitespace from long description before setting text content
-    document.getElementById("webinar-long-description").textContent = (data.long_description || "").trim();
-    document.getElementById("webinar-duration").textContent = data.hours ? data.hours + " hours" : "N/A";
-    // Show 0 if value is 0, not "N/A"
-    document.getElementById("webinar-lectures").textContent = (data.lessons !== undefined && data.lessons !== null) ? data.lessons : "N/A";
-    document.getElementById("webinar-students").textContent = (data.students !== undefined && data.students !== null) ? data.students : "N/A";
-    // Only set skill-level if element exists (it's commented out in HTML)
-    if(document.getElementById("webinar-skill-level")) {
-        document.getElementById("webinar-skill-level").textContent = data.skill_level || "N/A";
-    }
-    document.getElementById("webinar-date").textContent = data.webinar_date || "N/A";
-    document.getElementById("webinar-time").textContent = data.webinar_time || "N/A";
-    // Show "Free" if price is 0 or missing
-    document.getElementById("webinar-price").textContent = (data.price && Number(data.price) > 0) ? "$" + data.price : "Free";
-    document.getElementById("webinar-thumbnail").src = "project-settings/backend/uploads/" + (data.thumbnail || "default.jpg");
+					// Update page content with webinar data
+					document.getElementById("webinar-title").textContent = data.name || "No title";
+					document.getElementById("webinar-description").textContent = data.short_description || "";
+					// Trim whitespace from long description before setting text content
+					document.getElementById("webinar-long-description").textContent = (data.long_description || "").trim();
+					document.getElementById("webinar-duration").textContent = data.hours ? data.hours + " hours" : "N/A";
+					// Show 0 if value is 0, not "N/A"
+					document.getElementById("webinar-lectures").textContent = (data.lessons !== undefined && data.lessons !== null) ? data.lessons : "N/A";
+					document.getElementById("webinar-students").textContent = (data.students !== undefined && data.students !== null) ? data.students : "N/A";
+					// Only set skill-level if element exists (it's commented out in HTML)
+					if (document.getElementById("webinar-skill-level")) {
+						document.getElementById("webinar-skill-level").textContent = data.skill_level || "N/A";
+					}
+					document.getElementById("webinar-date").textContent = data.webinar_date || "N/A";
+					document.getElementById("webinar-time").textContent = data.webinar_time || "N/A";
+					// Show "Free" if price is 0 or missing
+					document.getElementById("webinar-price").textContent = (data.price && Number(data.price) > 0) ? "$" + data.price : "Free";
+					document.getElementById("webinar-thumbnail").src = "project-settings/backend/uploads/" + (data.thumbnail || "default.jpg");
 
-    // Update Buy button link if product id or similar exists
-    const buyBtn = document.getElementById("buy-webinar-btn");
-    if (buyBtn && data.id) {
-        buyBtn.href = `checkout.html?id=${data.id}`;
-    }
+					// Update Buy button link if product id or similar exists
+					const buyBtn = document.getElementById("buy-webinar-btn");
+					if (buyBtn && data.id) {
+						buyBtn.href = `checkout.html?id=${data.id}`;
+					}
 
 
 					// Initialize countdown if webinar_date is valid
@@ -810,7 +822,7 @@
 
 						// Fix profile picture URL to correctly point to backend uploads folder
 						const profilePic = comment.profile_picture ? `project-settings/backend/uploads/${comment.profile_picture.split('/').pop()}` : "images/resource/testi-thumb-1.jpg";
-console.log("Profile Picture URL:", profilePic);
+						console.log("Profile Picture URL:", profilePic);
 						commentElem.innerHTML = `
 							<div class="comment-one__image"><img src="${profilePic}" alt="User Image"></div>
 							<div class="comment-one__content">
@@ -836,14 +848,14 @@ console.log("Profile Picture URL:", profilePic);
 		});
 	</script>
 	<script>
-document.addEventListener("DOMContentLoaded", function () {
-  fetch("backend/check_session.php") // adjust path as needed
-    .then(res => res.json())
-    .then(data => {
-      const userNav = document.getElementById("user-nav");
+		document.addEventListener("DOMContentLoaded", function () {
+			fetch("backend/check_session.php") // adjust path as needed
+				.then(res => res.json())
+				.then(data => {
+					const userNav = document.getElementById("user-nav");
 
-      if (data.loggedIn) {
-        userNav.innerHTML = `
+					if (data.loggedIn) {
+						userNav.innerHTML = `
           <div class="dropdown">
             <button class="theme-btn btn-style-two dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
               Welcome, ${data.userName}
@@ -855,29 +867,29 @@ document.addEventListener("DOMContentLoaded", function () {
             </ul>
           </div>
         `;
-      } else {
-        userNav.innerHTML = `
+					} else {
+						userNav.innerHTML = `
           <a href="login.html" class="theme-btn btn-style-two"><span class="btn-title">Login</span></a>
         `;
-      }
-    });
-});
+					}
+				});
+		});
 
-document.addEventListener("click", function (e) {
-  if (e.target && e.target.id === "logout-btn") {
-    e.preventDefault();
+		document.addEventListener("click", function (e) {
+			if (e.target && e.target.id === "logout-btn") {
+				e.preventDefault();
 
-    fetch("backend/logout.php")
-      .then(res => res.json())
-      .then(data => {
-        if (data.success) {
-          location.reload(); // reload page to show Login button again
-        }
-      });
-  }
-});
+				fetch("backend/logout.php")
+					.then(res => res.json())
+					.then(data => {
+						if (data.success) {
+							location.reload(); // reload page to show Login button again
+						}
+					});
+			}
+		});
 
-</script>
+	</script>
 </body>
 
 </html>

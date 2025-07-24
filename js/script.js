@@ -81,13 +81,35 @@ var THEMEMASCOT = {};
 	//Mobile Nav Hide Show
 	if ($('.mobile-menu').length) {
 
-		var mobileMenuContent = $('.main-header .main-menu .navigation').html();
+		
+	// Custom menu HTML specifically for mobile menu only
+    var mobileMenuItems = `
+		<div class="contact-info-box">
+			<li class="current"><a href="index.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-home me-3"></i> Home</a></li>
+			<li><a href="page-about.html" class="text-white d-flex"><i class="fas fa-info-circle me-3"></i> About</a></li>
+			<li><a href="page-webinars.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-video me-3"></i> Webinar</a></li>
+			<li><a href="page-contact.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-phone me-3"></i> Contact</a></li>
+			<li class="border-top border-secondary mt-2 pt-2">
+				<a href="login.html" class="text-success d-flex align-items-center py-2"><i class="fas fa-sign-in-alt me-3"></i> Login</a>
+			</li>
+		</div>
+    `;
 
-		$('.mobile-menu .navigation').append(mobileMenuContent);
-		$('.sticky-header .navigation').append(mobileMenuContent);
+    // Inject custom content into mobile menu only
+    $('.mobile-menu .navigation2').html(mobileMenuItems);
+
+		// Close mobile menu on button click
 		$('.mobile-menu .close-btn').on('click', function () {
 			$('body').removeClass('mobile-menu-visible');
 		});
+
+		// var mobileMenuContent = $('.main-header .main-menu .navigation').html();
+
+		// $('.mobile-menu .navigation').append(mobileMenuContent);
+		// $('.sticky-header .navigation').append(mobileMenuContent);
+		// $('.mobile-menu .close-btn').on('click', function () {
+		// 	$('body').removeClass('mobile-menu-visible');
+		// });
 
 		//Dropdown Button
 		$('.mobile-menu li.dropdown .dropdown-btn').on('click', function () {

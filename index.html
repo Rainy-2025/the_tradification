@@ -24,6 +24,31 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
 	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+	<style>
+		.slider-dots {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
+	</style>
 </head>
 
 <body>
@@ -67,7 +92,7 @@
 			<div class="header-upper">
 				<div class="auto-container">
 					<div class="inner-container">
-						<div class="logo-box">
+						<div class="logo-box" style="margin-left: -2rem;">
 							<div class="logo d-flex align-items-center justify-content-center  mb-3 mx-auto"
 								style="width: 300px; height: 100px; border: 4px solid #fff;"><a href="index.html"><img
 										src="images/logo.png" alt=""></a></div>
@@ -251,121 +276,58 @@
 		<!--End Main Header -->
 		
 		<!--Main Slider-->
-		<section class="main-slider style-two">
-			<div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
-				<div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
-					<ul>
-						<!-- Slide 1 -->
-						<li data-index="rs-1" data-transition="zoomout">
-							<!-- MAIN IMAGE -->
-							<img src="images/main-slider/1.jpg" alt="" class="rev-slidebg">
+	 <section class="main-slider style-two">
+        <div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
+            <div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
+                <ul id="sliderList">
+                    <!-- Slide 1 -->
+                    <li data-index="rs-1" data-transition="zoomout">
+                        <!-- MAIN IMAGE -->
+                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=1920&h=1080&fit=crop&crop=center" alt="" class="rev-slidebg">
+                        <!-- <div class="slide-content">
+                            <h1>The best <br>program to <span class="color4">enroll</span> <br>for exchange</h1>
+                            <div class="text">World-class training and development programs <br>developed by top teachers</div>
+                            <a href="page-webinars.html" class="theme-btn">Find Course</a>
+                        </div> -->
+                    </li>
 
-							<div class="tp-caption tp-resizeme rs-parallaxlevel-1 big-ipad-hidden"
-								data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="shape" data-height="none" data-whitespace="nowrap" data-width="none"
-								data-hoffset="['-260','-50','0','150']" data-voffset="['-20','120','120','120']"
-								data-x="['right','right','right','right']"
-								data-y="['middle','middle','middle','middle']"
-								data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure><img src="images/main-slider/icon/shape-1.png" alt=""></figure>
-							</div>
+                    <!-- Slide 2 -->
+                    <li data-index="rs-2" data-transition="zoomout">
+                        <!-- MAIN IMAGE -->
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1920&h=1080&fit=crop" alt="" class="rev-slidebg">
+                        <!-- <div class="slide-content">
+                            <h1>Learn from <br>the <span class="color4">experts</span> <br>worldwide</h1>
+                            <div class="text">Connect with industry professionals and expand <br>your knowledge horizons</div>
+                            <a href="page-webinars.html" class="theme-btn">Get Started</a>
+                        </div> -->
+                    </li>
 
-							<div class="tp-caption tp-resizeme rs-parallaxlevel-2 big-ipad-hidden"
-								data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="shape" data-height="none" data-whitespace="nowrap" data-width="none"
-								data-hoffset="['-300','-120','-120','-120']" data-voffset="['200','100','100','100']"
-								data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']"
-								data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure><img src="images/main-slider/icon/icon-plane.png" alt=""></figure>
-							</div>
+                    <!-- Slide 3 -->
+                    <li data-index="rs-3" data-transition="zoomout">
+                        <!-- MAIN IMAGE -->
+                        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1920&h=1080&fit=crop">
+                        <!-- <div class="slide-content">
+                            <h1>Transform <br>your <span class="color4">career</span> <br>today</h1>
+                            <div class="text">Unlock new opportunities with our comprehensive <br>learning platform</div>
+                            <a href="page-webinars.html" class="theme-btn">Explore Now</a>
+                        </div> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Dots indicator -->
+        <!-- <div class="slider-dots" id="dotsContainer">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+        </div> -->
 
-
-							<div class="tp-caption tp-resizeme rs-parallaxlevel-1 big-ipad-hidden"
-								data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="shape" data-height="none" data-whitespace="nowrap" data-width="none"
-								data-hoffset="['-40','120','120','120']" data-voffset="['-160','100','100','100']"
-								data-x="['center','center','center','center']"
-								data-y="['middle','middle','middle','middle']"
-								data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure><img src="images/main-slider/icon/icon-dots-3.png" alt=""></figure>
-							</div>
-
-							<div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]"
-								data-responsive_offset="on" data-type="shape" data-height="none"
-								data-whitespace="nowrap" data-width="none" data-hoffset="['-160','-70','-250','-450']"
-								data-voffset="['70','40','60','60']" data-x="['right','right','right','right']"
-								data-y="['bottom','bottom','bottom','bottom']"
-								data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure class="main-image"><img src="images/main-slider/image-2.jpg" alt=""></figure>
-							</div>
-
-							<div class="tp-caption tp-resizeme rs-parallaxlevel-1 ipad-hidden big-ipad-hidden"
-								data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="shape" data-height="none" data-whitespace="nowrap" data-width="none"
-								data-hoffset="['100','-50','0','150']" data-voffset="['210','120','120','120']"
-								data-x="['center','center','center','center']"
-								data-y="['middle','middle','middle','middle']"
-								data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure><img src="images/main-slider/icon/icon-paper-pin.png" alt=""></figure>
-							</div>
-
-							<div class="tp-caption tp-shape tp-shapewrapper tp-resizeme big-ipad-hidden rs-parallaxlevel-1"
-								data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="shape" data-height="auto" data-whitespace="nowrap" data-width="none"
-								data-hoffset="['-195','-100','-100','-100']" data-voffset="['250','-190','-190','-190']"
-								data-x="['right','right','right','right']"
-								data-y="['middle','middle','middle','middle']"
-								data-frames='[{"from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure><img src="images/main-slider/icon/icon-sheild.png" alt=""></figure>
-							</div>
-
-							<div class="tp-caption" data-paddingbottom="[15,15,15,15]" data-paddingleft="[15,15,15,15]"
-								data-paddingright="[15,15,15,15]" data-paddingtop="[0,0,0,0]"
-								data-responsive_offset="on" data-type="text" data-height="none"
-								data-width="['750','750','750','650']" data-whitespace="normal"
-								data-hoffset="['0','0','0','0']" data-voffset="['-60','-50','-50','-80']"
-								data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']"
-								data-textalign="['top','top','top','top']"
-								data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-								<h1>The best <br>program to <span class="color4">enroll</span> <br>for exchange</h1>
-							</div>
-
-							<div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[15,15,15,15]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="text" data-height="none" data-width="['750','750','750','450']"
-								data-whitespace="normal" data-hoffset="['0','0','0','0']"
-								data-voffset="['110','100','100','65']" data-x="['left','left','left','left']"
-								data-y="['middle','middle','middle','middle']"
-								data-textalign="['top','top','top','top']"
-								data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-								<div class="text">World-class training and development programs <br>developed by top
-									teachers</div>
-							</div>
-
-
-							<div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[15,15,15,15]"
-								data-paddingright="[15,15,15,15]" data-paddingtop="[0,0,0,0]"
-								data-responsive_offset="on" data-type="text" data-height="none"
-								data-width="['700','750','700','450']" data-whitespace="normal"
-								data-hoffset="['0','0','0','0']" data-voffset="['200','185','200','185']"
-								data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']"
-								data-textalign="['top','top','top','top']"
-								data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-								<a href="page-webinars.html" class="theme-btn btn-style-one bg-theme-color2">Find
-									Course</a>
-							</div>
-						</li>
-
-					</ul>
-				</div>
-			</div>
-		</section>
+        <!-- Auto scroll indicator -->
+        <!-- <div class="auto-scroll-indicator">
+            Auto Scroll: <span id="autoScrollStatus">ON</span>
+            <button class="pause-btn" id="pauseBtn">⏸️</button>
+        </div> -->
+    </section>
 		<!-- End Main Slider-->
 
 		<!-- About Section Three -->
@@ -718,7 +680,7 @@
 					<h2>Testimonials</h2>
 					<button class="add-testimonial-btn" onclick="openTestimonialModal()">➕ Add Testimonial</button>
 				</div>
-				<p>what our clients say about us.</p>
+				<p class="text-black">what our clients say about us.</p>
 
 				<div class="testim-wrapper">
 					<div class="testim-content">
@@ -1036,9 +998,12 @@
 						<!--Footer Column-->
 						<div class="footer-column col-xl-3 col-lg-12 col-md-6 col-sm-12">
 							<div class="footer-widget about-widget">
-								<div class="logo d-flex align-items-center justify-content-center  mb-3 mx-auto mr-3"
-									style="width: 90px; height: 90px; "><a href="index.html"><img
-											src="images/logo-2.png" alt=""></a></div>
+								<div class="logo d-flex align-items-center justify-content-start justify-sm-center mb-3 mx-0 mx-sm-auto"
+									style="width: 90px; height: 90px;">
+									<a href="index.html">
+										<img src="images/logo-2.png" alt="" class="img-fluid">
+									</a>
+								</div>
 								<div class="text mt-3">The Tradification — Learn. Trade. Grow.Empowering every trader’s
 									journey with insight and confidence.</div>
 								<!-- <ul class="social-icon-two">

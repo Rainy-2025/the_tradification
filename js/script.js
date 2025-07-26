@@ -80,24 +80,23 @@ var THEMEMASCOT = {};
 
 	//Mobile Nav Hide Show
 	if ($('.mobile-menu').length) {
-
-		
-	// Custom menu HTML specifically for mobile menu only
-    var mobileMenuItems = `
+		// Custom menu HTML specifically for mobile menu only
+		var mobileMenuItems = `
 		<div class="contact-info-box">
 			<li class="current"><a href="index.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-home me-3"></i> Home</a></li>
-			<li><a href="page-about.html" class="text-white d-flex"><i class="fas fa-info-circle me-3"></i> About</a></li>
+			<li><a href="page-about.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-info-circle me-3"></i> About</a></li>
 			<li><a href="page-webinars.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-video me-3"></i> Webinar</a></li>
+			<li><a href="page-webinars.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-video me-3"></i> Courses</a></li>
 			<li><a href="page-contact.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-phone me-3"></i> Contact</a></li>
 			<li class="border-top border-secondary mt-2 pt-2">
 				<a href="login.html" class="text-success d-flex align-items-center py-2"><i class="fas fa-sign-in-alt me-3"></i> Login</a>
 			</li>
 		</div>
     `;
-
-    // Inject custom content into mobile menu only
-    $('.mobile-menu .navigation1').html(mobileMenuItems);
-
+		var mobileMenuContent = $('.main-header .main-menu .navigation').html();
+		// Inject custom content into mobile menu only
+		$('.mobile-menu .navigation1').html(mobileMenuItems);
+		$('.sticky-header .navigation').append(mobileMenuContent);
 		// Close mobile menu on button click
 		$('.mobile-menu .close-btn').on('click', function () {
 			$('body').removeClass('mobile-menu-visible');
@@ -871,5 +870,164 @@ var THEMEMASCOT = {};
 	$(window).on('load', function () {
 		handlePreloader();
 	});
+
+	 class ScrollableRevSlider {
+            constructor() {
+                this.currentSlide = 0;
+                this.totalSlides = 3;
+                this.isAutoScrolling = true;
+                this.autoScrollInterval = null;
+                this.isDragging = false;
+                this.startPos = 0;
+                this.currentTranslate = 0;
+                this.prevTranslate = 0;
+                
+                this.sliderList = document.getElementById('sliderList');
+                this.container = document.getElementById('rev_slider_one_wrapper');
+                // this.dots = document.querySelectorAll('.dot');
+                // this.prevBtn = document.getElementById('prevBtn');
+                // this.nextBtn = document.getElementById('nextBtn');
+                // this.pauseBtn = document.getElementById('pauseBtn');
+                this.autoScrollStatus = document.getElementById('autoScrollStatus');
+                
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.startAutoScroll();
+                this.updateSlider();
+            }
+
+            setupEventListeners() {
+                // Mouse events for drag
+                this.container.addEventListener('mousedown', this.dragStart.bind(this));
+                this.container.addEventListener('mousemove', this.dragMove.bind(this));
+                this.container.addEventListener('mouseup', this.dragEnd.bind(this));
+                this.container.addEventListener('mouseleave', this.dragEnd.bind(this));
+
+                // Touch events for mobile
+                this.container.addEventListener('touchstart', this.dragStart.bind(this));
+                this.container.addEventListener('touchmove', this.dragMove.bind(this));
+                this.container.addEventListener('touchend', this.dragEnd.bind(this));
+
+                // Navigation buttons
+                this.prevBtn.addEventListener('click', () => this.goToSlide(this.currentSlide - 1));
+                this.nextBtn.addEventListener('click', () => this.goToSlide(this.currentSlide + 1));
+
+                // Dots navigation
+                // this.dots.forEach(dot => {
+                //     dot.addEventListener('click', (e) => {
+                //         const slideIndex = parseInt(e.target.dataset.slide);
+                //         this.goToSlide(slideIndex);
+                //     });
+                // });
+
+                // Pause/resume auto scroll
+                // this.pauseBtn.addEventListener('click', this.toggleAutoScroll.bind(this));
+
+                // Pause on hover
+                // this.container.addEventListener('mouseenter', this.pauseAutoScroll.bind(this));
+                // this.container.addEventListener('mouseleave', this.resumeAutoScroll.bind(this));
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.goToSlide(this.currentSlide - 1);
+                    if (e.key === 'ArrowRight') this.goToSlide(this.currentSlide + 1);
+                    if (e.key === ' ') {
+                        e.preventDefault();
+                        this.toggleAutoScroll();
+                    }
+                });
+            }
+
+            // dragStart(e) {
+            //     this.isDragging = true;
+            //     this.startPos = this.getPositionX(e);
+            //     this.sliderList.style.transition = 'none';
+            //     this.pauseAutoScroll();
+            // }
+
+            // dragMove(e) {
+            //     if (!this.isDragging) return;
+                
+            //     e.preventDefault();
+            //     const currentPosition = this.getPositionX(e);
+            //     const diff = currentPosition - this.startPos;
+            //     this.currentTranslate = this.prevTranslate + (diff / window.innerWidth) * 100;
+                
+            //     // Apply boundaries
+            //     const maxTranslate = 0;
+            //     const minTranslate = -(this.totalSlides - 1) * (100 / this.totalSlides);
+            //     this.currentTranslate = Math.max(minTranslate, Math.min(maxTranslate, this.currentTranslate));
+                
+            //     this.sliderList.style.transform = `translateX(${this.currentTranslate}%)`;
+            // }
+
+            // dragEnd() {
+            //     if (!this.isDragging) return;
+                
+            //     this.isDragging = false;
+            //     this.sliderList.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                
+            //     const moved = this.currentTranslate - this.prevTranslate;
+            //     const threshold = 10; // Minimum drag percentage to change slide
+                
+            //     if (Math.abs(moved) > threshold) {
+            //         if (moved > 0 && this.currentSlide > 0) {
+            //             this.goToSlide(this.currentSlide - 1);
+            //         } else if (moved < 0 && this.currentSlide < this.totalSlides - 1) {
+            //             this.goToSlide(this.currentSlide + 1);
+            //         } else {
+            //             this.updateSlider();
+            //         }
+            //     } else {
+            //         this.updateSlider();
+            //     }
+                
+            //     setTimeout(() => this.resumeAutoScroll(), 3000);
+            // }
+
+            getPositionX(e) {
+                return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+            }
+
+            goToSlide(slideIndex) {
+                if (slideIndex < 0) {
+                    this.currentSlide = this.totalSlides - 1;
+                } else if (slideIndex >= this.totalSlides) {
+                    this.currentSlide = 0;
+                } else {
+                    this.currentSlide = slideIndex;
+                }
+                
+                this.updateSlider();
+            }
+
+            updateSlider() {
+                const translateX = -this.currentSlide * (100 / this.totalSlides);
+                this.sliderList.style.transform = `translateX(${translateX}%)`;
+                this.currentTranslate = translateX;
+                this.prevTranslate = translateX;
+                
+                // // Update dots
+                // this.dots.forEach((dot, index) => {
+                //     dot.classList.toggle('active', index === this.currentSlide);
+                // });
+            }
+
+            startAutoScroll() {
+                if (this.autoScrollInterval) clearInterval(this.autoScrollInterval);
+                this.autoScrollInterval = setInterval(() => {
+                    this.goToSlide(this.currentSlide + 1);
+                }, 1000); // Changed from 4000ms (4 seconds) to 1000ms (1 second)
+            }
+
+        }
+
+        // Initialize the slider when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new ScrollableRevSlider();
+        });
 
 })(window.jQuery);

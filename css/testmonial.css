@@ -142,7 +142,7 @@
     /* Responsive Fixes */
     @media (max-width: 768px) {
       .testim-content {
-        animation: none !important;
+        /* animation: none !important; */
       }
 
       .testim-box {

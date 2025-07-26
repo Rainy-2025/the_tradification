@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Edulerns | Education HTML Template</title>
+	<title>The Tradification</title>
 	<!-- Stylesheets -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="plugins/revolution/css/settings.css" rel="stylesheet" type="text/css">
@@ -67,7 +67,7 @@
 			<div class="header-upper">
 				<div class="auto-container">
 					<div class="inner-container">
-						<div class="logo-box">
+						<div class="logo-box" style="margin-left: -2rem;">
 							<div class="logo d-flex align-items-center justify-content-center  mb-3 mx-auto"
 								style="width: 300px; height: 100px; border: 4px solid #fff;"><a href="index.html"><img
 										src="images/logo.png" alt=""></a></div>
@@ -156,7 +156,7 @@
 						<div class="close-btn"><i class="icon fa fa-times"></i></div>
 					</div>
 
-					<ul class="navigation clearfix">
+					<ul class="navigation1 clearfix">
 						<!--Keep This Empty / Menu will come through Javascript-->
 					</ul>
 					<ul class="contact-list-one">
@@ -224,8 +224,11 @@
 				<div class="auto-container">
 					<div class="inner-container">
 						<!--Logo-->
-						<div class="logo">
-							<a href="index.html" title=""><img src="images/logo.png" alt="" title=""></a>
+						<div class="logo" style="width: 120px; height: 60px; border: 2px solid #fff;">
+							<a href="index.html" title="">
+								<img src="images/logo.png" alt="" title=""
+									style="width: 100%; height:100%; object-fit: cover;">
+							</a>
 						</div>
 
 						<!--Right Col-->
@@ -339,23 +342,21 @@
 									const courseDiv = document.createElement('div');
 									courseDiv.className = `course-block-two mix category-${course.category_id} col-lg-4 col-md-6 col-sm-12`;
 									courseDiv.innerHTML = `
-                <div class="inner-box">
-                  <div class="image-box">
-                    <figure class="image"><a href="#"><img src="project-settings/backend/uploads/${course.thumbnail}" alt=""></a></figure>
-                    <span class="price">$${course.price || 'Free'}</span>
-                    <div class="value">${course.level || 'Beginner'}</div>
-                  </div>
-                  <div class="content-box">
-                    <ul class="course-info">
-                      <li><i class="fa fa-book"></i> ${course.lectures || 0} Lessons</li>
-                      <li><i class="fa fa-clock"></i> ${course.duration || 'N/A'}</li>
-                    </ul>
-                    <h5 class="title"><a href="course-details.html?id=${course.id}">${course.name}</a></h5>
-              
-                    </div>
-                  </div>
-                </div>
-              `;
+												<div class="inner-box">
+												<a href="course-details.html?id=${course.id}"><div class="image-box">
+													<figure class="image"><img src="project-settings/backend/uploads/${course.thumbnail}" alt=""></figure>
+												</div>
+												</a>
+												<div class="content-box">
+													<ul class="course-info">
+													<li><i class="fa fa-book"></i> ${course.lectures || 0} Lessons</li>
+													</ul>
+													<h5 class="title"><a href="course-details.html?id=${course.id}">${course.name}</a></h5>
+											
+													</div>
+												</div>
+												</div>
+											`;
 									courseContainer.appendChild(courseDiv);
 								});
 
@@ -377,6 +378,7 @@
 	</div>
 	</section>
 	<!--End News Section -->
+
 	<!-- Main Footer -->
 	<footer class="main-footer">
 		<div class="bg-image zoom-two" style="background-image: url(images/background/4.jpg)"></div>
@@ -388,10 +390,14 @@
 					<!--Footer Column-->
 					<div class="footer-column col-xl-3 col-lg-12 col-md-6 col-sm-12">
 						<div class="footer-widget about-widget">
-							<div class="logo d-flex align-items-center justify-content-center  mb-3 mx-auto"
-								style="width: 150px; height: 150px; "><a href="index.html"><img src="images/logo-2.png"
-										alt=""></a></div>
-							<!-- <div class="text">Get 26,000+ best online courses from us</div> -->
+							<div class="logo d-flex align-items-center justify-content-start justify-sm-center mb-3 mx-0 mx-sm-auto"
+									style="width: 90px; height: 90px;">
+									<a href="index.html">
+										<img src="images/logo-2.png" alt="" class="img-fluid">
+									</a>
+								</div>
+							<div class="text mt-4">The Tradification — Learn. Trade. Grow. Empowering every trader’s
+								journey with insight and confidence.</div>
 							<!-- <ul class="social-icon-two">
 									<li><a href="https://x.com/zaidshe72458514"><span class="fab fa-twitter"></span></a>
 									</li>
@@ -412,9 +418,8 @@
 							<ul class="user-links">
 								<li><a href="privacy.html">Privacy Policy</a></li>
 								<li><a href="login.html">Login</a></li>
-								<li><a href="Register.html">Sign Up</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
-								<li><a href="#">Refund Policy</a></li>
+								<li><a href="Terms&Condition.html">Terms & Conditions</a></li>
+								<li><a href="RefundPolicy.html">Refund Policy</a></li>
 								<li><a href="page-contact.html">Contacts</a></li>
 							</ul>
 						</div>
@@ -482,7 +487,8 @@
 		<div class="footer-bottom">
 			<div class="auto-container">
 				<div class="inner-container">
-					<div class="copyright-text">&copy; Copyright reserved by <a href="index.html">skyroute.com</a>
+					<div class="copyright-text">&copy; Copyright reserved by <a
+							href="https://skyroutesolution.com/">skyroutesolution.com</a>
 					</div>
 				</div>
 			</div>

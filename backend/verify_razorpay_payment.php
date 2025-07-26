@@ -34,6 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Save payment details to database
         $user_id = $_SESSION['user_id'] ?? null;
+        $user_email = '';
+        $user_name = '';
+        $user_phone = '';
+
         if ($user_id) {
             if ($webinar_id === null) {
                 $webinar_id = 0; // or handle as appropriate for your DB schema
@@ -42,6 +46,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $status = 'success';
             $stmt->bind_param("iisss", $user_id, $webinar_id, $razorpay_payment_id, $razorpay_order_id, $status);
             $stmt->execute();
+            $stmt->close();
+
+            // Fetch user details from users table
+            $stmt = $conn->prepare("SELECT name, email, phone FROM users WHERE id = ?");
+            $stmt->bind_param("i", $user_id);
+            $stmt->execute();
+            $stmt->bind_result($user_name, $user_email, $user_phone);
+            $stmt->fetch();
             $stmt->close();
         }
 
@@ -63,9 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         // Send emails on successful payment
-        $user_email = $_SESSION['user_email'] ?? '';
-        $user_name = $_SESSION['user_name'] ?? '';
-        $user_phone = $_SESSION['user_phone'] ?? '';
         $admin_email = 'darwairavina2002@gmail.com'; // Replace with actual admin email
 
         $mail = new PHPMailer(true);
@@ -81,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mail->Port = 587;
 
             //Recipients
-            $mail->setFrom('no-reply@edulerns.com', 'Edulerns');
+            $mail->setFrom('no-reply@TheTradification.com', 'The Tradification');
             if ($user_email) {
                 $mail->addAddress($user_email, $user_name);
             }
@@ -90,9 +99,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Content for user
             if ($user_email) {
                 $user_body = "Dear $user_name,\n\nThank you for your payment. Your payment ID is $razorpay_payment_id.\n\nWebinar Details:\n";
-                $user_body .= "Name: $webinar_name\nDate: $webinar_date\nTime: $webinar_time\nLink: $webinar_link\nDescription: $webinar_short_desc\n\nRegards,\nEdulerns Team";
+                $user_body .= "Name: $webinar_name\nDate: $webinar_date\nTime: $webinar_time\nLink: $webinar_link\nDescription: $webinar_short_desc\n\nRegards,\nThe Tradification Team";
 
-                $mail->Subject = "Payment Confirmation - Edulerns";
+                $mail->Subject = "Payment Confirmation - The Tradification";
                 $mail->Body    = $user_body;
                 $mail->send();
                 $mail->clearAddresses();
@@ -103,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $admin_body = "Payment received from $user_name ($user_email, $user_phone).\n";
             $admin_body .= "Webinar Selected: $webinar_name\nPayment ID: $razorpay_payment_id\nOrder ID: $razorpay_order_id";
 
-            $mail->Subject = "New Payment Received - Edulerns";
+            $mail->Subject = "New Payment Received - The Tradification";
             $mail->Body    = $admin_body;
             $mail->send();
 
@@ -120,7 +129,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 if ($success) {
-    echo json_encode(['status' => 'success', 'message' => 'Payment verified successfully']);
+    echo json_encode([
+        'status' => 'success',
+        'message' => 'Payment verified successfully',
+        'razorpay_payment_id' => $razorpay_payment_id,
+        'webinar_name' => $webinar_name,
+        'webinar_time' => $webinar_time
+    ]);
 } else {
     echo json_encode(['status' => 'error', 'message' => $error]);
 }

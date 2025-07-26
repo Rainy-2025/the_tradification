@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Edulerns | Education HTML Template</title>
+	<title>The Tradification</title>
 	<!-- Stylesheets -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="plugins/revolution/css/settings.css" rel="stylesheet" type="text/css">
@@ -15,6 +15,7 @@
 	<link href="css/style.css" rel="stylesheet">
 	<link href="css/responsive.css" rel="stylesheet">
 	<link href="css/testmonial.css" rel="stylesheet">
+	<link href="css/custom-slider.css" rel="stylesheet">
 
 	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
 	<link rel="icon" href="images/favicon.png" type="image/x-icon">
@@ -24,6 +25,32 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 	<!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
 	<!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
+
+
+<!-- Revolution Slider CSS -->
+<link rel="stylesheet" href="plugins/revolution/css/settings.css" />
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Revolution Slider JS -->
+<script src="plugins/revolution/js/jquery.themepunch.tools.min.js"></script>
+<script src="plugins/revolution/js/jquery.themepunch.revolution.min.js"></script>
+<style>#sliderList {
+    display: flex;
+    transition: transform 0.5s ease;
+    width: 100%;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#sliderList .slide {
+    flex: 0 0 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+			</style>
 </head>
 
 <body>
@@ -67,7 +94,7 @@
 			<div class="header-upper">
 				<div class="auto-container">
 					<div class="inner-container">
-						<div class="logo-box">
+						<div class="logo-box" style="margin-left: -2rem;">
 							<div class="logo d-flex align-items-center justify-content-center  mb-3 mx-auto"
 								style="width: 300px; height: 100px; border: 4px solid #fff;"><a href="index.html"><img
 										src="images/logo.png" alt=""></a></div>
@@ -156,7 +183,7 @@
 						<div class="close-btn"><i class="icon fa fa-times"></i></div>
 					</div>
 
-					<ul class="navigation clearfix">
+					<ul class="navigation1 clearfix">
 						<!--Keep This Empty / Menu will come through Javascript-->
 					</ul>
 					<ul class="contact-list-one">
@@ -174,7 +201,7 @@
 								<span class="icon lnr-icon-envelope1"></span>
 								<span class="title">Send Email</span>
 								<a
-									href="https://html.kodesolution.com/cdn-cgi/l/email-protection#cca4a9a0bc8cafa3a1bcada2b5e2afa3a1"><span
+									href="https://html.kodesolution.com/cdn-cgi/l/email-protection#cca4a9a0bc8cafa3a1bcada2e2afa3a1"><span
 										class="__cf_email__"
 										data-cfemail="c6aea3aab686a5a9abb6a7a8bfe8a5a9ab">support@thetradification.com</span></a>
 							</div>
@@ -224,8 +251,10 @@
 				<div class="auto-container">
 					<div class="inner-container">
 						<!--Logo-->
-						<div class="logo">
-							<a href="index.html" title=""><img src="images/logo.png" alt="" title=""></a>
+						<div class="logo" style="width: 120px; height: 60px; border: 2px solid #fff;">
+							<a href="index.html" title="">
+								<img src="images/logo.png" alt="" title="" style="width: 100%; height:100%; object-fit: cover;">
+							</a>
 						</div>
 
 						<!--Right Col-->
@@ -247,123 +276,29 @@
 			</div><!-- End Sticky Menu -->
 		</header>
 		<!--End Main Header -->
-
+		
 		<!--Main Slider-->
-		<section class="main-slider style-two">
-			<div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
-				<div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
-					<ul>
-						<!-- Slide 1 -->
-						<li data-index="rs-1" data-transition="zoomout">
-							<!-- MAIN IMAGE -->
-							<img src="images/main-slider/1.jpg" alt="" class="rev-slidebg">
+	 <section class="main-slider style-two">
+        <div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
+            <div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
+                <ul id="sliderList">
+                </ul>
+             
+            </div>
+        </div>
+        <!-- Dots indicator -->
+        <!-- <div class="slider-dots" id="dotsContainer">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+        </div> -->
 
-							<div class="tp-caption tp-resizeme rs-parallaxlevel-1 big-ipad-hidden"
-								data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="shape" data-height="none" data-whitespace="nowrap" data-width="none"
-								data-hoffset="['-260','-50','0','150']" data-voffset="['-20','120','120','120']"
-								data-x="['right','right','right','right']"
-								data-y="['middle','middle','middle','middle']"
-								data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure><img src="images/main-slider/icon/shape-1.png" alt=""></figure>
-							</div>
-
-							<div class="tp-caption tp-resizeme rs-parallaxlevel-2 big-ipad-hidden"
-								data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="shape" data-height="none" data-whitespace="nowrap" data-width="none"
-								data-hoffset="['-300','-120','-120','-120']" data-voffset="['200','100','100','100']"
-								data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']"
-								data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1500,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure><img src="images/main-slider/icon/icon-plane.png" alt=""></figure>
-							</div>
-
-
-							<div class="tp-caption tp-resizeme rs-parallaxlevel-1 big-ipad-hidden"
-								data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="shape" data-height="none" data-whitespace="nowrap" data-width="none"
-								data-hoffset="['-40','120','120','120']" data-voffset="['-160','100','100','100']"
-								data-x="['center','center','center','center']"
-								data-y="['middle','middle','middle','middle']"
-								data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure><img src="images/main-slider/icon/icon-dots-3.png" alt=""></figure>
-							</div>
-
-							<div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]"
-								data-paddingleft="[0,0,0,0]" data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]"
-								data-responsive_offset="on" data-type="shape" data-height="none"
-								data-whitespace="nowrap" data-width="none" data-hoffset="['-160','-70','-250','-450']"
-								data-voffset="['70','40','60','60']" data-x="['right','right','right','right']"
-								data-y="['bottom','bottom','bottom','bottom']"
-								data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure class="main-image"><img src="images/main-slider/image-2.jpg" alt=""></figure>
-							</div>
-
-							<div class="tp-caption tp-resizeme rs-parallaxlevel-1 ipad-hidden big-ipad-hidden"
-								data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="shape" data-height="none" data-whitespace="nowrap" data-width="none"
-								data-hoffset="['100','-50','0','150']" data-voffset="['210','120','120','120']"
-								data-x="['center','center','center','center']"
-								data-y="['middle','middle','middle','middle']"
-								data-frames='[{"from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":2000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":3000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure><img src="images/main-slider/icon/icon-paper-pin.png" alt=""></figure>
-							</div>
-
-							<div class="tp-caption tp-shape tp-shapewrapper tp-resizeme big-ipad-hidden rs-parallaxlevel-1"
-								data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="shape" data-height="auto" data-whitespace="nowrap" data-width="none"
-								data-hoffset="['-195','-100','-100','-100']" data-voffset="['250','-190','-190','-190']"
-								data-x="['right','right','right','right']"
-								data-y="['middle','middle','middle','middle']"
-								data-frames='[{"from":"x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":1000,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]'>
-								<figure><img src="images/main-slider/icon/icon-sheild.png" alt=""></figure>
-							</div>
-
-							<div class="tp-caption" data-paddingbottom="[15,15,15,15]" data-paddingleft="[15,15,15,15]"
-								data-paddingright="[15,15,15,15]" data-paddingtop="[0,0,0,0]"
-								data-responsive_offset="on" data-type="text" data-height="none"
-								data-width="['750','750','750','650']" data-whitespace="normal"
-								data-hoffset="['0','0','0','0']" data-voffset="['-60','-50','-50','-80']"
-								data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']"
-								data-textalign="['top','top','top','top']"
-								data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-								<h1>The best <br>program to <span class="color4">enroll</span> <br>for exchange</h1>
-							</div>
-
-							<div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[15,15,15,15]"
-								data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-								data-type="text" data-height="none" data-width="['750','750','750','450']"
-								data-whitespace="normal" data-hoffset="['0','0','0','0']"
-								data-voffset="['110','100','100','65']" data-x="['left','left','left','left']"
-								data-y="['middle','middle','middle','middle']"
-								data-textalign="['top','top','top','top']"
-								data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-								<div class="text">World-class training and development programs <br>developed by top
-									teachers</div>
-							</div>
-
-
-							<div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[15,15,15,15]"
-								data-paddingright="[15,15,15,15]" data-paddingtop="[0,0,0,0]"
-								data-responsive_offset="on" data-type="text" data-height="none"
-								data-width="['700','750','700','450']" data-whitespace="normal"
-								data-hoffset="['0','0','0','0']" data-voffset="['200','185','200','185']"
-								data-x="['left','left','left','left']" data-y="['middle','middle','middle','middle']"
-								data-textalign="['top','top','top','top']"
-								data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-								<a href="page-webinars.html" class="theme-btn btn-style-one bg-theme-color2">Find
-									Course</a>
-							</div>
-						</li>
-
-					</ul>
-				</div>
-			</div>
-		</section>
+        <!-- Auto scroll indicator -->
+        <!-- <div class="auto-scroll-indicator">
+            Auto Scroll: <span id="autoScrollStatus">ON</span>
+            <button class="pause-btn" id="pauseBtn">⏸️</button>
+        </div> -->
+    </section>
 		<!-- End Main Slider-->
 
 		<!-- About Section Three -->
@@ -423,6 +358,7 @@
 		</section>
 		<!--Emd About Section -->
 
+            
 
 		<section class="about-section-three pt-0">
 		</section>
@@ -485,83 +421,55 @@
 				</div>
 
 				<div class="sec-title text-center">
-					<span class="sub-title">featured Webinar</span>
-					<h2>Pick a webinar to<br> get started your study</h2>
 				</div>
-
-				<div class="row" id="webinar-list">
-					<!-- Webinar blocks will be dynamically inserted here -->
+				<div id="webinarContainer" class="row">
+					<!-- Webinar items will be dynamically inserted here -->
 				</div>
-				<script>
-					function loadWebinars() {
-						fetch('backend/fetch_three_webinar.php')
-							.then(response => response.json())
-							.then(data => {
-								const container = document.getElementById('webinar-list');
-								container.innerHTML = '';
-								data.forEach(webinar => {
-									const col = document.createElement('div');
-									col.className = 'course-block-two col-lg-4 col-md-6 col-sm-12';
-
-									const innerBox = document.createElement('div');
-									innerBox.className = 'inner-box';
-
-									const imageBox = document.createElement('div');
-									imageBox.className = 'image-box';
-
-									const figure = document.createElement('figure');
-									figure.className = 'image';
-
-									const link = document.createElement('a');
-									link.href = 'page-course-details.html'; // Adjust if needed
-
-									const img = document.createElement('img');
-									img.src = webinar.thumbnail ? 'project-settings/backend/uploads/' + webinar.thumbnail : 'images/resource/course-5.jpg';
-									img.alt = webinar.name;
-									img.className = 'webinar-img';  // Add the class here
-
-									link.appendChild(img);
-									figure.appendChild(link);
-									imageBox.appendChild(figure);
-
-									innerBox.appendChild(imageBox);
-
-									const contentBox = document.createElement('div');
-									contentBox.className = 'content-box';
-
-									const ul = document.createElement('ul');
-									ul.className = 'course-info';
-
-									// Use created_at date formatted as date string
-									const liDate = document.createElement('li');
-									const createdAt = new Date(webinar.created_at);
-									liDate.innerHTML = '<i class="fa fa-calendar"></i> ' + createdAt.toLocaleDateString();
-									ul.appendChild(liDate);
-
-									contentBox.appendChild(ul);
-
-									const h5 = document.createElement('h5');
-									const h5Link = document.createElement('a');
-									h5Link.href = 'page-course-details.html'; // Adjust if needed
-									h5Link.textContent = webinar.name;
-									h5.appendChild(h5Link);
-									contentBox.appendChild(h5);
-
-									innerBox.appendChild(contentBox);
-									col.appendChild(innerBox);
-									container.appendChild(col);
-								});
-							})
-							.catch(error => {
-								console.error('Error loading webinars:', error);
-							});
-					}
-
-					document.addEventListener('DOMContentLoaded', loadWebinars);
-				</script>
 			</div>
 		</section>
 		<!-- End Courses Section-->
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const webinarContainer = document.getElementById('webinarContainer');
+				if (!webinarContainer) return;
+
+				fetch('backend/fetch_webinars.php')
+					.then(response => response.json())
+					.then(data => {
+						webinarContainer.innerHTML = '';
+
+						data.forEach(course => {
+							const courseHtml = `
+								<div class="course-block-two col-lg-4 col-md-6 col-sm-12">
+									<div class="inner-box">
+										<div class="image-box">
+											<figure class="image">
+												<a href="page-webinar-details.html?id=${course.id}">
+													<img src="project-settings/backend/uploads/${course.thumbnail}" alt="" style="width:383px !important; height:209px  !important; object-fit:cover;">
+												</a>
+											</figure>
+											<span class="price">$${course.price}</span>
+										</div>
+										<div class="content-box">
+											<ul class="course-info">
+												<li><i class="fa fa-book"></i> ${course.webinar_date} </li>
+												<li><i class="fa fa-users"></i> ${course.webinar_time}</li>
+												<li><i class="fa fa-clock"></i> ${course.hours || 3} hours</li>
+											</ul>
+											<h5 class="title"><a href="page-webinar-details.html?id=${course.id}">${course.name}</a></h5>
+											<p class="title"><a href="page-webinar-details.html?id=${course.id}">${course.short_description}</a></p>
+										</div>
+									</div>
+								</div>`;
+							webinarContainer.insertAdjacentHTML('beforeend', courseHtml);
+						});
+					})
+					.catch(error => {
+						console.error('Error loading webinars:', error);
+					});
+			});
+		</script>
 
 		<!-- Clients Section   -->
 		<section class="clients-section">
@@ -636,7 +544,7 @@
 									<!-- <span class="date">20 <br> May</span> -->
 								</div>
 								<h5 class="title"><a href="page-about.html"> Real Traders, Real Strategies</a></h5>
-								<p>All our methods are backed by live market execution and tested across various
+								<p style="color: black;">All our methods are backed by live market execution and tested across various
 									conditions. We don’t just teach—we actively trade.</p>
 								<!-- <ul class="post-info">
 								<li><i class="icon lnr-icon-history"></i><span>Time:</span> 11:00am 02:00pm</li>
@@ -655,7 +563,7 @@
 									<!-- <span class="date">20 <br> May</span> -->
 								</div>
 								<h5 class="title"><a href="page-about.html"> Psychology-Driven Education</a></h5>
-								<p>We integrate trading psychology, emotional control, and capital protection into every
+								<p style="color: black;">We integrate trading psychology, emotional control, and capital protection into every
 									lesson—because consistent profits require more than just charts.</p>
 								<!-- <ul class="post-info">
 								<li><i class="icon lnr-icon-history"></i><span>Time:</span> 11:00am 02:00pm</li>
@@ -674,7 +582,7 @@
 									<!-- <span class="date">20 <br> May</span> -->
 								</div>
 								<h5 class="title"><a href="page-about.html"> Bilingual & Beginner-Friendly</a></h5>
-								<p>We teach in English and simple Hindi (Roman) so every learner can understand.
+								<p style="color: black;">We teach in English and simple Hindi (Roman) so every learner can understand.
 									Beginners get practical trading examples for easy learning and real results.</p>
 
 								<!-- <ul class="post-info">
@@ -694,7 +602,7 @@
 									<!-- <span class="date">20 <br> May</span> -->
 								</div>
 								<h5 class="title"><a href="page-about.html"> Community-Centered Growth</a></h5>
-								<p>We believe in collective progress. Our growing trader community shares, learns, and
+								<p style="color: black;">We believe in collective progress. Our growing trader community shares, learns, and
 									thrives together—with transparency and accountability.</p>
 								<!-- <ul class="post-info">
 								<li><i class="icon lnr-icon-history"></i><span>Time:</span> 11:00am 02:00pm</li>
@@ -715,7 +623,7 @@
 					<h2>Testimonials</h2>
 					<button class="add-testimonial-btn" onclick="openTestimonialModal()">➕ Add Testimonial</button>
 				</div>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+				<p class="text-black">what our clients say about us.</p>
 
 				<div class="testim-wrapper">
 					<div class="testim-content">
@@ -857,7 +765,7 @@
 
 							dateSpan.innerHTML = '<b>' + day + '</b> ' + month;
 
-							imageBox.appendChild(dateSpan);
+							// imageBox.appendChild(dateSpan);
 
 							innerBox.appendChild(imageBox);
 
@@ -1033,10 +941,14 @@
 						<!--Footer Column-->
 						<div class="footer-column col-xl-3 col-lg-12 col-md-6 col-sm-12">
 							<div class="footer-widget about-widget">
-								<div class="logo d-flex align-items-center justify-content-center  mb-3 mx-auto"
-									style="width: 150px; height: 150px; "><a href="index.html"><img
-											src="images/logo-2.png" alt=""></a></div>
-								<!-- <div class="text">Get 26,000+ best online courses from us</div> -->
+								<div class="logo d-flex align-items-center justify-content-start justify-sm-center mb-3 mx-0 mx-sm-auto"
+									style="width: 90px; height: 90px;">
+									<a href="index.html">
+										<img src="images/logo-2.png" alt="" class="img-fluid">
+									</a>
+								</div>
+								<div class="text mt-3">The Tradification — Learn. Trade. Grow.Empowering every trader’s
+									journey with insight and confidence.</div>
 								<!-- <ul class="social-icon-two">
 									<li><a href="https://x.com/zaidshe72458514"><span class="fab fa-twitter"></span></a>
 									</li>
@@ -1057,8 +969,8 @@
 								<ul class="user-links">
 									<li><a href="privacy.html">Privacy Policy</a></li>
 									<li><a href="login.html">Login</a></li>
-									<li><a href="#">Terms & Conditions</a></li>
-									<li><a href="#">Refund Policy</a></li>
+									<li><a href="Terms&Condition.html">Terms & Conditions</a></li>
+									<li><a href="RefundPolicy.html">Refund Policy</a></li>
 									<li><a href="page-contact.html">Contacts</a></li>
 								</ul>
 							</div>
@@ -1127,7 +1039,7 @@
 			<div class="footer-bottom">
 				<div class="auto-container">
 					<div class="inner-container">
-						<div class="copyright-text">&copy; Copyright reserved by <a href="index.html">skyroute.com</a>
+						<div class="copyright-text">&copy; Copyright reserved by <a href="https://skyroutesolution.com/">skyroutesolution.com</a>
 						</div>
 					</div>
 				</div>
@@ -1170,6 +1082,8 @@
 	<script src="js/swiper.min.js"></script>
 	<script src="js/owl.js"></script>
 	<script src="js/script.js"></script>
+
+                
 	<script>
 		// Open/Close Modal
 		function openTestimonialModal() {

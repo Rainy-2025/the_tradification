@@ -116,12 +116,23 @@
                         <input type="text" id="webinarName" class="form-control" required>
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="levelSelect">Level</label>
+                        <select id="levelSelect" class="form-control" required>
+                            <option value="">Select Level</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="thumbnail">Thumbnail (choose image file)</label>
                     <input type="file" id="thumbnail" class="form-control" accept="image/*">
                 </div>
                 <div class="form-group">
-                    <label for="shortDescription">Short Description</label>
+                    <label for="shortDescription">Short Description  (Not more  than 10 to 12 words.)</label>
                     <textarea id="shortDescription" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
@@ -357,6 +368,7 @@ function formatDate(dateStr) {
                 var formData = new FormData();
                 formData.append('category_id', $('#categorySelect').val());
                 formData.append('name', $('#webinarName').val());
+                formData.append('level', $('#levelSelect').val());
                 var thumbnailFile = $('#thumbnail')[0].files[0];
                 if (thumbnailFile) {
                     formData.append('thumbnail', thumbnailFile);
@@ -398,6 +410,7 @@ function formatDate(dateStr) {
                 formData.append('id', $('#webinarId').val());
                 formData.append('category_id', $('#categorySelect').val());
                 formData.append('name', $('#webinarName').val());
+                formData.append('level', $('#levelSelect').val());
                 var thumbnailFile = $('#thumbnail')[0].files[0];
                 if (thumbnailFile) {
                     formData.append('thumbnail', thumbnailFile);
@@ -450,6 +463,7 @@ function formatDate(dateStr) {
                                 $('#webinarId').val(webinar.id);
                                 $('#categorySelect').val(webinar.category_id);
                                 $('#webinarName').val(webinar.name);
+                                $('#levelSelect').val(webinar.level);
                                 $('#thumbnail').val('');
                                 $('#shortDescription').val(webinar.short_description);
                                 $('#longDescription').val(webinar.long_description);

@@ -36,6 +36,7 @@ try {
         $hours = intval($input['hours'] ?? 0);
         $price = floatval($input['price'] ?? 0);
         $webinar_link = trim($input['webinar_link'] ?? null);
+        $level = trim($input['level'] ?? 'Beginner');
 
         // Handle thumbnail upload
         $thumbnail = null;
@@ -55,10 +56,11 @@ try {
             }
         }
 
-        $stmt = $conn->prepare("INSERT INTO webinars (category_id, name, thumbnail, short_description, long_description, webinar_date, webinar_time, hours, price, webinar_link) VALUES (:category_id, :name, :thumbnail, :short_description, :long_description, :webinar_date, :webinar_time, :hours, :price, :webinar_link)");
+        $stmt = $conn->prepare("INSERT INTO webinars (category_id, name, level, thumbnail, short_description, long_description, webinar_date, webinar_time, hours, price, webinar_link) VALUES (:category_id, :name, :level, :thumbnail, :short_description, :long_description, :webinar_date, :webinar_time, :hours, :price, :webinar_link)");
         $stmt->execute([
             ':category_id' => $category_id,
             ':name' => $name,
+            ':level' => $level,
             ':thumbnail' => $thumbnail,
             ':short_description' => $short_description,
             ':long_description' => $long_description,
@@ -80,6 +82,7 @@ try {
             throw new Exception('Invalid ID, category or name');
         }
 
+        $level = trim($input['level'] ?? 'Beginner');
         $short_description = trim($input['short_description'] ?? null);
         $long_description = trim($input['long_description'] ?? null);
         $webinar_date = $input['webinar_date'] ?? null;
@@ -115,10 +118,11 @@ try {
             $thumbnail = $existing['thumbnail'] ?? null;
         }
 
-        $stmt = $conn->prepare("UPDATE webinars SET category_id = :category_id, name = :name, thumbnail = :thumbnail, short_description = :short_description, long_description = :long_description, webinar_date = :webinar_date, webinar_time = :webinar_time, hours = :hours, price = :price, webinar_link = :webinar_link, banner_active = :banner_active WHERE id = :id");
+        $stmt = $conn->prepare("UPDATE webinars SET category_id = :category_id, name = :name, level = :level, thumbnail = :thumbnail, short_description = :short_description, long_description = :long_description, webinar_date = :webinar_date, webinar_time = :webinar_time, hours = :hours, price = :price, webinar_link = :webinar_link, banner_active = :banner_active WHERE id = :id");
         $stmt->execute([
             ':category_id' => $category_id,
             ':name' => $name,
+            ':level' => $level,
             ':thumbnail' => $thumbnail,
             ':short_description' => $short_description,
             ':long_description' => $long_description,

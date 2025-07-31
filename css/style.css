@@ -762,13 +762,13 @@ li {
   left: 50%;
   top: 50%;
   height: 100px;
-  width: 100px;
-  margin-left: -50px;
+  width: 200px;
+  margin-left: -100px;
   margin-top: -60px;
   background-position: center center;
   background-repeat: no-repeat;
   background-image: url(../images/icons/preloader.gif);
-  background-size: 60px;
+  background-size: 200px;
   content: "";
 }
 

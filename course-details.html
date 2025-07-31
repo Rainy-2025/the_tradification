@@ -54,7 +54,7 @@
 											class="fab fa-youtube"></span></a></li>
 								<li><a href="https://www.linkedin.com/in/mohd-zaid-sheikh-8ba4231b2/"><span
 											class="fab fa-linkedin-in"></span></a></li>
-								<li><a href="https://www.instagram.com/the_tradification/"><span
+								<li><a href="https://www.instagram.com/thetradification/?igsh=MXBnY2NicjlnbXl3ag%3D%3D#"><span
 											class="fab fa-instagram"></span></a></li>
 							</ul>
 						</div>
@@ -197,7 +197,7 @@
 									class="fab fa-youtube"></span></a></li>
 						<li><a href="https://www.linkedin.com/in/mohd-zaid-sheikh-8ba4231b2/"><span
 									class="fab fa-linkedin-in"></span></a></li>
-						<li><a href="https://www.instagram.com/the_tradification/"><span
+						<li><a href="https://www.instagram.com/thetradification/?igsh=MXBnY2NicjlnbXl3ag%3D%3D#"><span
 									class="fab fa-instagram"></span></a></li>
 					</ul>
 				</nav>
@@ -289,11 +289,11 @@
 										<span id="course-lectures">0</span>
 										Lecture</a>
 								</li>
-								<!-- <li><a href="#">
+								<li><a href="#">
 										<i class="fas fa-tags"></i>
 										<span id="course-level">Level</span>
 									</a>
-								</li> -->
+								</li>
 							</ul>
 							<h3 class="blog-details__title" id="course-name">Course Title</h3>
 							<p class="blog-details__text-2" id="course-description">Course description will appear here.
@@ -485,7 +485,7 @@
 												class="fab fa-youtube"></span></a></li>
 									<li><a href="https://www.linkedin.com/in/mohd-zaid-sheikh-8ba4231b2/"><span
 												class="fab fa-linkedin-in"></span></a></li>
-									<li><a href="https://www.instagram.com/the_tradification/"><span
+									<li><a href="https://www.instagram.com/thetradification/?igsh=MXBnY2NicjlnbXl3ag%3D%3D#"><span
 												class="fab fa-instagram"></span></a></li>
 								</ul> -->
 							</div>
@@ -543,7 +543,7 @@
 													class="fab fa-youtube"></span></a></li>
 										<li><a href="https://www.linkedin.com/in/mohd-zaid-sheikh-8ba4231b2/"><span
 													class="fab fa-linkedin-in"></span></a></li>
-										<li><a href="https://www.instagram.com/the_tradification/"><span
+										<li><a href="https://www.instagram.com/thetradification/?igsh=MXBnY2NicjlnbXl3ag%3D%3D#"><span
 													class="fab fa-instagram"></span></a></li>
 									</ul>
 									<!-- <div class="subscribe-form">
@@ -596,6 +596,7 @@
 	<script src="js/swiper.min.js"></script>
 	<script src="js/owl.js"></script>
 	<script src="js/script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<!-- form submit -->
 	<script src="js/jquery.validate.min.js"></script>
 	<script src="js/jquery.form.min.js"></script>
@@ -650,13 +651,17 @@
 					document.getElementById('course-name').textContent = course.name || '';
 					document.getElementById('course-description').textContent = course.long_description || 'No description available.';
 					document.getElementById('course-lectures').textContent = course.lectures || '0';
-					document.getElementById('course-level').textContent = course.level || '';
+					const courseLevelElem = document.getElementById('course-level');
+					if (courseLevelElem) {
+						courseLevelElem.textContent = course.level || '';
+					}
 					// Update image src if available
 					if (course.thumbnail) {
 						const imgElem = document.querySelector('#course-image img');
 						imgElem.src = `project-settings/backend/uploads/${course.thumbnail}`;
 						imgElem.alt = course.name || 'Course Image';
 					}
+					console.log(course);
 					// Show Watch Now button if video_link exists
 					if (course.video_link) {
 						const watchNowLink = document.getElementById('watch-now-link');

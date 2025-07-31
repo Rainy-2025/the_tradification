@@ -341,30 +341,31 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="image-box">
           <figure class="image"><a href="page-webinar-details.html?id=${course.id}"><img src="project-settings/backend/uploads/${course.thumbnail}" alt="" ></a></figure>
           <span class="price">$${course.price}</span>
-          <div class="value">Advanced</div>
+          <div class="value">${course.level || 'Beginner'}</div>
         </div>
-                <div class="content-box">
-                  <ul class="course-info">
-                    <li><i class="fa fa-book"></i> 8 Lessons</li>
-                    <li><i class="fa fa-users"></i> 16 Students</li>
-                    <li><i class="fa fa-clock"></i> ${course.hours || 3} Weeks</li>
-                  </ul>
-                  <h5 class="title"><a href="page-webinar-details.html?id=${course.id}">${course.name}</a></h5>
-                  <div class="other-info">
-                    <div class="rating-box">
-                      <span class="text">(4.9 /8 Rating)</span>
-                      <div class="rating">
-                        <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>`;
-          courseContainer.insertAdjacentHTML('beforeend', courseHtml);
-        });
-      });
-  }
+        <div class="content-box">
+          <ul class="course-info">
+            <li><i class="fa fa-book"></i> 8 Lessons</li>
+            <li><i class="fa fa-users"></i> 16 Students</li>
+            <li><i class="fa fa-clock"></i> ${course.hours || 3} Weeks</li>
+          </ul>
+          <h5 class="title"><a href="page-webinar-details.html?id=${course.id}">${course.name}</a></h5>
+          <div class="other-info">
+            <div class="rating-box">
+              <span class="text">(4.9 /8 Rating)</span>
+              <div class="rating">
+                      <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        `;
+           courseContainer.insertAdjacentHTML('beforeend', courseHtml);
+         });
+       });
+   }
 
   // Initial load
   loadCategories();
@@ -393,30 +394,37 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        data.forEach(course => {
+     
+	     data.forEach(course => {
           const courseHtml = `
             <div class="course-block-two col-lg-4 col-md-6 col-sm-12">
               <div class="inner-box">
-                <div class="image-box">
-                  <figure class="image"><a href="page-webinar-details.html?id=${course.id}"><img src="project-settings/backend/uploads/${course.thumbnail}" alt=""style="width:384px !important; height:209px  !important; object-fit:cover;"></a></figure>
-                  <span class="price">$${course.price}</span>
-                </div>
+        <div class="image-box">
+          <figure class="image"><a href="page-webinar-details.html?id=${course.id}"><img src="project-settings/backend/uploads/${course.thumbnail}" alt="" ></a></figure>
+          <span class="price">$${course.price}</span>
+          <div class="value">Advanced</div>
+        </div>
                 <div class="content-box">
                   <ul class="course-info">
-                    <li><i class="fa fa-book"></i> ${course.webinar_date} </li>
-                    <li><i class="fa fa-users"></i> ${course.webinar_time}</li>
-                    <li><i class="fa fa-clock"></i> ${course.hours || 3} hours</li>
+                    <li><i class="fa fa-book"></i> 8 Lessons</li>
+                    <li><i class="fa fa-users"></i> 16 Students</li>
+                    <li><i class="fa fa-clock"></i> ${course.hours || 3} Weeks</li>
                   </ul>
                   <h5 class="title"><a href="page-webinar-details.html?id=${course.id}">${course.name}</a></h5>
-                                  <p class="title"><a href="page-webinar-details.html?id=${course.id}">${course.short_description}</a></p>
-
+                  <div class="other-info">
+                    <div class="rating-box">
+                      <span class="text">(4.9 /8 Rating)</span>
+                      <div class="rating">
+                        <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>`;
           courseContainer.insertAdjacentHTML('beforeend', courseHtml);
         });
-      });
-  };
+  
 
   filterButtons.forEach(btn => {
     btn.addEventListener('click', () => {

@@ -224,7 +224,7 @@
                                 coursesHtml = '<p>No courses available.</p>';
                             } else {
                                 coursesHtml = '<table class="table table-bordered table-striped">';
-                                coursesHtml += '<thead><tr><th>Thumbnail</th><th>Name</th><th>Category</th><th>Short Description</th><th>Long Description</th><th>Lectures</th><th>Level</th><th>Video</th><th>Banner Active</th><th>Actions</th></tr></thead><tbody>';
+                                coursesHtml += '<thead><tr><th>Thumbnail</th><th>Name</th><th>Category</th><th>Short Description</th><th>Long Description</th><th>Lectures</th><th>Level</th><th>Video</th><th>Actions</th></tr></thead><tbody>';
                                 courses.forEach(function(course) {
                                     coursesHtml += '<tr>';
                                     coursesHtml += '<td>';
@@ -249,7 +249,6 @@
                                     coursesHtml += '</td>';
                                 // Remove price column as per user request
                                 // coursesHtml += '<td>Rs ' + (course.price || '') + '</td>';
-                                coursesHtml += '<td><input type="checkbox" class="bannerActiveToggle" data-id="' + course.id + '"' + (course.banner_active == 1 ? ' checked' : '') + '></td>';
                                     coursesHtml += '<td>';
                                     coursesHtml += '<button class="btn btn-sm btn-info editBtn" data-id="' + course.id + '">Edit</button> ';
                                     coursesHtml += '<button class="btn btn-sm btn-danger deleteBtn" data-id="' + course.id + '">Delete</button>';

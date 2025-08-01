@@ -2700,6 +2700,15 @@ Sticky Header
 .sticky-header .main-menu .navigation > li:hover > a {
   color: var(--theme-color2);
 }
+/* .sticky-header .main-menu .navigation > li.current > a,
+.sticky-header .main-menu .navigation > li:hover > a :is(:link, :visited, :active).active {
+  color: var(--theme-color2);
+} */
+ /* .navigation li.active a {
+  color: blue;
+  font-weight: bold;
+} */
+
 
 .sticky-header .main-menu .navigation > li:before {
   display: none;
@@ -3451,7 +3460,7 @@ Section Title
 ***/
 .about-section {
   position: relative;
-  padding: 120px 0 0px;
+  padding: 90px 0 0px;
 }
 .about-section .icon-dotted-map {
   top: 145px;

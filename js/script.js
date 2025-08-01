@@ -83,7 +83,7 @@ var THEMEMASCOT = {};
 		// Custom menu HTML specifically for mobile menu only
 		var mobileMenuItems = `
 		<div class="contact-info-box">
-			<li class="current"><a href="index.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-home me-3"></i> Home</a></li>
+			<li class=""><a href="index.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-home me-3"></i> Home</a></li>
 			<li><a href="page-about.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-info-circle me-3"></i> About</a></li>
 			<li><a href="page-webinars.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-video me-3"></i> Webinar</a></li>
 			<li><a href="page-webinars.html" class="text-white d-flex align-items-center py-2"><i class="fas fa-video me-3"></i> Courses</a></li>
@@ -871,86 +871,97 @@ var THEMEMASCOT = {};
 		handlePreloader();
 	});
 
-class ScrollableRevSlider {
-    constructor() {
-        this.sliderList = document.getElementById('sliderList');
-        this.container = document.getElementById('rev_slider_one_wrapper');
+	class ScrollableRevSlider {
+		constructor() {
+			this.sliderList = document.getElementById('sliderList');
+			this.container = document.getElementById('rev_slider_one_wrapper');
 
-        if (!this.container || !this.sliderList || this.sliderList.children.length === 0) return;
+			if (!this.container || !this.sliderList || this.sliderList.children.length === 0) return;
 
-        this.totalSlides = this.sliderList.children.length;
-        this.currentSlide = 0;
-        this.isDragging = false;
-        this.autoScrollInterval = null;
+			this.totalSlides = this.sliderList.children.length;
+			this.currentSlide = 0;
+			this.isDragging = false;
+			this.autoScrollInterval = null;
 
-        this.init();
-    }
+			this.init();
+		}
 
-    init() {
-        this.setupEventListeners();
-        this.startAutoScroll();
-        this.updateSlider();
-    }
+		init() {
+			this.setupEventListeners();
+			this.startAutoScroll();
+			this.updateSlider();
+		}
 
-    setupEventListeners() {
-        this.container.addEventListener('mousedown', this.dragStart.bind(this));
-        this.container.addEventListener('mousemove', this.dragMove.bind(this));
-        this.container.addEventListener('mouseup', this.dragEnd.bind(this));
-        this.container.addEventListener('mouseleave', this.dragEnd.bind(this));
+		setupEventListeners() {
+			this.container.addEventListener('mousedown', this.dragStart.bind(this));
+			this.container.addEventListener('mousemove', this.dragMove.bind(this));
+			this.container.addEventListener('mouseup', this.dragEnd.bind(this));
+			this.container.addEventListener('mouseleave', this.dragEnd.bind(this));
 
-        this.container.addEventListener('touchstart', this.dragStart.bind(this));
-        this.container.addEventListener('touchmove', this.dragMove.bind(this));
-        this.container.addEventListener('touchend', this.dragEnd.bind(this));
-    }
+			this.container.addEventListener('touchstart', this.dragStart.bind(this));
+			this.container.addEventListener('touchmove', this.dragMove.bind(this));
+			this.container.addEventListener('touchend', this.dragEnd.bind(this));
+		}
 
-    getPositionX(e) {
-        return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-    }
+		getPositionX(e) {
+			return e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+		}
 
-    goToSlide(index) {
-        if (index < 0) index = this.totalSlides - 1;
-        if (index >= this.totalSlides) index = 0;
-        this.currentSlide = index;
-        this.updateSlider();
-    }
+		goToSlide(index) {
+			if (index < 0) index = this.totalSlides - 1;
+			if (index >= this.totalSlides) index = 0;
+			this.currentSlide = index;
+			this.updateSlider();
+		}
 
-    updateSlider() {
-        const translateX = -this.currentSlide * 100;
-        this.sliderList.style.transform = `translateX(${translateX}%)`;
-    }
+		updateSlider() {
+			const translateX = -this.currentSlide * 100;
+			this.sliderList.style.transform = `translateX(${translateX}%)`;
+		}
 
-    startAutoScroll() {
-        if (this.autoScrollInterval) clearInterval(this.autoScrollInterval);
-        this.autoScrollInterval = setInterval(() => {
-            this.goToSlide(this.currentSlide + 1);
-        }, 30000); // ✅ 30 seconds
-    }
+		startAutoScroll() {
+			if (this.autoScrollInterval) clearInterval(this.autoScrollInterval);
+			this.autoScrollInterval = setInterval(() => {
+				this.goToSlide(this.currentSlide + 1);
+			}, 30000); // ✅ 30 seconds
+		}
 
-    dragStart(e) {
-        this.isDragging = true;
-        this.startPos = this.getPositionX(e);
-    }
+		dragStart(e) {
+			this.isDragging = true;
+			this.startPos = this.getPositionX(e);
+		}
 
-    dragMove(e) {
-        if (!this.isDragging) return;
-        const movedBy = this.getPositionX(e) - this.startPos;
-        if (movedBy < -100) {
-            this.goToSlide(this.currentSlide + 1);
-            this.isDragging = false;
-        } else if (movedBy > 100) {
-            this.goToSlide(this.currentSlide - 1);
-            this.isDragging = false;
-        }
-    }
+		dragMove(e) {
+			if (!this.isDragging) return;
+			const movedBy = this.getPositionX(e) - this.startPos;
+			if (movedBy < -100) {
+				this.goToSlide(this.currentSlide + 1);
+				this.isDragging = false;
+			} else if (movedBy > 100) {
+				this.goToSlide(this.currentSlide - 1);
+				this.isDragging = false;
+			}
+		}
 
-    dragEnd() {
-        this.isDragging = false;
-    }
-}
+		dragEnd() {
+			this.isDragging = false;
+		}
+	}
 
-// Run after DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-    new ScrollableRevSlider();
-});
+	// Run after DOM is fully loaded
+	document.addEventListener('DOMContentLoaded', () => {
+		new ScrollableRevSlider();
+	});
+
+
+	const activePage = window.location.pathname;
+	const navLinks = document.querySelectorAll('.navigation a').forEach(link => {
+		// console.log(link.href);
+		if (link.href.includes(`${activePage}`)) {
+			// console.log(`${activePage}`);
+			link.classList.add('current');
+		}
+	});
+
 
 })(window.jQuery);

@@ -51,6 +51,31 @@
 			font-family: Arial, sans-serif;
 			margin: 0 15px 10px 0;
 		}
+
+		/* Disabled Buy Button Style */
+		#buy-webinar-btn.disabled,
+		#buy-webinar-btn[disabled] {
+			pointer-events: none;
+			opacity: 0.6;
+			background-color: #ccc !important;
+			color: #666 !important;
+			border-color: #999 !important;
+			cursor: not-allowed;
+		}
+
+		/* Expired Webinar Message Style */
+		#webinar-countdown.expired {
+			font-weight: 900;
+			color: #ff0000;
+			font-size: 2.5rem;
+			font-family: 'Arial Black', Gadget, sans-serif;
+			text-align: center;
+			padding: 20px;
+			border: 2px solid #ff0000;
+			border-radius: 10px;
+			background-color: #ffe6e6;
+			margin-top: 10px;
+		}
 	</style>
 	<!-- SweetAlert2 CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet" />
@@ -427,7 +452,7 @@
 
 							<div class="course-details-price">
 								<p class="course-details-price-text">Webinar price</p>
-								<p class="course-details-price-amount" id="webinar-price">$0.00</p>
+								<p class="course-details-price-amount" id="webinar-price">₹0.00</p>
 								<a href="checkout.html" class="theme-btn btn-style-two course-details-price-btn"
 									id="buy-webinar-btn">Buy This
 									Webinar</a>
@@ -716,7 +741,7 @@
 					document.getElementById("webinar-date").textContent = data.webinar_date || "N/A";
 					document.getElementById("webinar-time").textContent = data.webinar_time || "N/A";
 					// Show "Free" if price is 0 or missing
-					document.getElementById("webinar-price").textContent = (data.price && Number(data.price) > 0) ? "$" + data.price : "Free";
+					document.getElementById("webinar-price").textContent = (data.price && Number(data.price) > 0) ? "₹" + data.price : "Free";
 					document.getElementById("webinar-thumbnail").src = "project-settings/backend/uploads/" + (data.thumbnail || "default.jpg");
 
 					// Update Buy button link if product id or similar exists
@@ -750,8 +775,16 @@
 								const distance = countdownDate.getTime() - now;
 
 								if (distance < 0) {
-									countdownElem.innerHTML = "The webinar has started or the date is in the past.";
+									countdownElem.innerHTML = "This is expired webinar";
+									countdownElem.classList.add("expired");
 									clearInterval(intervalId);
+
+									// Disable Buy button
+									if (buyBtn) {
+										buyBtn.removeAttribute("href");
+										buyBtn.classList.add("disabled");
+										buyBtn.setAttribute("disabled", "disabled");
+									}
 									return;
 								}
 
@@ -795,6 +828,7 @@
 						confirmButtonText: 'OK'
 					});
 				});
+
 
 			// Fetch and render comments
 			fetch(`backend/fetch_webinar_comments.php?webinar_id=${webinarId}`)

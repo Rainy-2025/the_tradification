@@ -8,7 +8,7 @@ function initRevSlider() {
         revapi486 = tpj("#rev_slider_one").show().revolution({
             sliderType: "standard",
             jsFileLocation: "plugins/revolution/js/",
-            sliderLayout: "auto",
+            sliderLayout: "fullwidth",
             dottedOverlay: "on",
             delay: 10000,
             navigation: {
@@ -49,7 +49,7 @@ function initRevSlider() {
             responsiveLevels: [1200, 1040, 802, 480],
             visibilityLevels: [1200, 1040, 802, 480],
             gridwidth: [1200, 1040, 800, 480],
-            gridheight: [820, 750, 750, 750],
+            gridheight: [600, 500, 400, 300],
             lazyType: "none",
             parallax: {
                 type: "mouse",

@@ -267,19 +267,18 @@
 	<!-- end main-content -->
 
 	<!-- Featured Products -->
-<!-- ✅ 1. HTML for Course Filter UI -->
+<!-- HTML for Course Filter UI -->
 <section class="featured-products">
   <span class="bg-shape"></span>
   <div class="auto-container">
     <div class="mixitup-gallery">
 
       <!-- Filter Tabs -->
-   
-<div class="filters clearfix">
-  <ul class="filter-tabs filter-btns clearfix" id="category-filters">
-    <!-- Categories will be loaded here -->
-  </ul>
-</div>
+      <div class="filters clearfix">
+        <ul class="filter-tabs filter-btns clearfix" id="category-filters">
+          <!-- Categories will be loaded here -->
+        </ul>
+      </div>
 
       <!-- Course List -->
       <div class="filter-list row">
@@ -288,6 +287,7 @@
     </div>
   </div>
 </section>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const filterList = document.getElementById("category-filters");
@@ -312,14 +312,14 @@ document.addEventListener("DOMContentLoaded", function () {
             button.classList.add("active");
 
             const categoryId = button.getAttribute("data-filter");
-            loadwebinar(categoryId);
+            loadWebinars(categoryId);
           });
         });
       });
   }
 
-  // Load webinar/webinars based on category
-  function loadwebinar(category) {
+  // Load webinars based on category
+  function loadWebinars(category) {
     const url = category === 'all'
       ? 'backend/fetch_webinars.php'
       : `backend/fetch_webinars.php?category=${category}`;
@@ -338,72 +338,11 @@ document.addEventListener("DOMContentLoaded", function () {
           const courseHtml = `
             <div class="course-block-two col-lg-4 col-md-6 col-sm-12">
               <div class="inner-box">
-        <div class="image-box">
-          <figure class="image"><a href="page-webinar-details.html?id=${course.id}"><img src="project-settings/backend/uploads/${course.thumbnail}" alt="" ></a></figure>
-          <span class="price">$${course.price}</span>
-          <div class="value">${course.level || 'Beginner'}</div>
-        </div>
-        <div class="content-box">
-          <ul class="course-info">
-            <li><i class="fa fa-book"></i> 8 Lessons</li>
-            <li><i class="fa fa-users"></i> 16 Students</li>
-            <li><i class="fa fa-clock"></i> ${course.hours || 3} Weeks</li>
-          </ul>
-          <h5 class="title"><a href="page-webinar-details.html?id=${course.id}">${course.name}</a></h5>
-          <div class="other-info">
-            <div class="rating-box">
-              <span class="text">(4.9 /8 Rating)</span>
-              <div class="rating">
-                      <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-        `;
-           courseContainer.insertAdjacentHTML('beforeend', courseHtml);
-         });
-       });
-   }
-
-  // Initial load
-  loadCategories();
-  loadwebinar('all');
-});
-</script>
-
-<!-- ✅ 2. JavaScript (AJAX) -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const filterButtons = document.querySelectorAll('.filter-tabs .filter');
-  const courseContainer = document.querySelector('.filter-list');
-
-  const loadwebinar = (category) => {
-    const url = category === 'all'
-      ? 'backend/fetch_webinars.php'
-      : `backend/fetch_webinars.php?category=${category}`;
-
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        courseContainer.innerHTML = '';
-
-        if (data.length === 0) {
-          courseContainer.innerHTML = '<p>No webinar found.</p>';
-          return;
-        }
-
-     
-	     data.forEach(course => {
-          const courseHtml = `
-            <div class="course-block-two col-lg-4 col-md-6 col-sm-12">
-              <div class="inner-box">
-        <div class="image-box">
-          <figure class="image"><a href="page-webinar-details.html?id=${course.id}"><img src="project-settings/backend/uploads/${course.thumbnail}" alt="" ></a></figure>
-          <span class="price">$${course.price}</span>
-          <div class="value">Advanced</div>
-        </div>
+                <div class="image-box">
+                  <figure class="image"><a href="page-webinar-details.html?id=${course.id}"><img src="project-settings/backend/uploads/${course.thumbnail}" alt="" ></a></figure>
+                  <span class="price">₹${course.price}</span>
+                  <div class="value">${course.level || 'Beginner'}</div>
+                </div>
                 <div class="content-box">
                   <ul class="course-info">
                     <li><i class="fa fa-book"></i> 8 Lessons</li>
@@ -411,53 +350,20 @@ document.addEventListener('DOMContentLoaded', () => {
                     <li><i class="fa fa-clock"></i> ${course.hours || 3} Weeks</li>
                   </ul>
                   <h5 class="title"><a href="page-webinar-details.html?id=${course.id}">${course.name}</a></h5>
-                  <div class="other-info">
-                    <div class="rating-box">
-                      <span class="text">(4.9 /8 Rating)</span>
-                      <div class="rating">
-                        <span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span><span class="fa fa-star"></span>
-                      </div>
-                    </div>
-                  </div>
+                
                 </div>
               </div>
-            </div>`;
+            </div>
+          `;
           courseContainer.insertAdjacentHTML('beforeend', courseHtml);
         });
-  
+      });
+  }
 
-  filterButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-
-      const category = btn.getAttribute('data-filter');
-      loadwebinar(category);
-    });
-  });
-
-  loadwebinar('all');
+  // Initial load
+  loadCategories();
+  loadWebinars('all');
 });
-
-//   1. load categories  → build filter buttons
-//   2. when a button is clicked  → call loadwebinar(ID)
-function loadCategories(){
-  fetch('backend/fetch_categories_webinar.php')
-    .then(r=>r.json())
-    .then(catArr=>{
-      const ul = document.getElementById('category-filters');
-      ul.innerHTML = '<li class="active filter" data-filter="all">All</li>' +
-        catArr.map(c=>`<li class="filter" data-filter="${c.id}">${c.name}</li>`).join('');
-      attachFilterEvents();   // add click listeners
-    });
-}
-
-function loadwebinar(catId='all'){
-  fetch(`backend/fetch_webinars.php?category=${catId}`)
-    .then(r=>r.json())
-    .then(renderwebinar);     // your existing renderwebinar implementation
-}
-
 </script>
 
 	<!-- End Featured Products -->
